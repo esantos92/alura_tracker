@@ -50,7 +50,6 @@
     },
     methods: {
       iniciar () {
-        this.cronometro = setInterval(() => {
           this.tempoEmSegundos +=1
         }, 1000)
       },
