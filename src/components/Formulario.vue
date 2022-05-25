@@ -39,7 +39,8 @@
     name: 'Formulario',
     data () {
       return {
-        tempoEmSegundos: 0
+        tempoEmSegundos: 0,
+        cronometro: 0
       }
     },
     computed: {
@@ -49,12 +50,12 @@
     },
     methods: {
       iniciar () {
-        setInterval(() => {
+        this.cronometro = setInterval(() => {
           this.tempoEmSegundos +=1
         }, 1000)
       },
       finalizar () {
-        console.log('finalizado')
+        clearInterval(this.cronometro)
       }
     }
   });
