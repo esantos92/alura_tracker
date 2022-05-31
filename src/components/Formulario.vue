@@ -36,10 +36,6 @@
         console.log('tempo da tarefa', tempoDecorrido);
         console.log('descricao da tarefa', this.descricao);
         this.descricao = ''
-<<<<<<< HEAD
-=======
-
->>>>>>> 5738c1390e2ceaacd7f3d9ff690ef59105bd532b
       }
     }
   });
