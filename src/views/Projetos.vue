@@ -1,74 +1,22 @@
 <template>
-  <section class="projetos">
+  <div class="projetos">
     <h1 class="title">Projetos</h1>
-    <form @submit.prevent="salvar">
-      <div class="field">
-        <label for="" class="label">
-          Nome do Projeto
-        </label>
-        <input 
-          type="text" 
-          class="input" 
-          v-model="nomeDoProjeto" 
-          id="nomeDoProjeto"
-        />
-        <div class="field">
-          <button class="button" type="submit">
-            Salvar
-          </button>
-        </div>
-      </div>
-    </form>
-    <table class="table is-fullwidth">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>NOME</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="projeto in projetos" :key="projeto.id">
-          <td>{{ projeto.id }}</td>
-          <td>{{ projeto.nome}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { useStore } from '@/store';
-import { computed } from '@vue/reactivity';
+import { defineComponent } from "vue";
 
-export default defineComponent ({
-  name: 'Projetos',
-  data () {
-    return {
-      nomeDoProjeto: ""      
-    };
-  },
-  methods: {
-    salvar () {
-      this.store.commit('ADICIONA_PROJETO', this.nomeDoProjeto)
-      this.nomeDoProjeto = ''
-    }
-  },
-  setup() {
-    const store = useStore()
-    return {
-      store,
-      projetos: computed(() => store.state.projetos)
-    }
-  }
+export default defineComponent({
+  name: 'Projetos'
 })
-</script>
 
+
+</script>
 <style scoped>
-  input {
-    margin-bottom: 1rem;
-  }
   .projetos {
-    padding: 1.25rem;
-  }
+      padding: 1.25rem;
+      margin-left: 1rem;
+    }
 </style>
