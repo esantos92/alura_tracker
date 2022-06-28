@@ -1,16 +1,11 @@
 <template>
-  <section>    
+  <section>
     <form @submit.prevent="salvar">
       <div class="field">
         <label for="" class="label">
           Nome do Projeto
         </label>
-        <input 
-          type="text" 
-          class="input" 
-          v-model="nomeDoProjeto" 
-          id="nomeDoProjeto"
-        />
+        <input type="text" class="input" v-model="nomeDoProjeto" id="nomeDoProjeto" />
         <div class="field">
           <button class="button" type="submit">
             Salvar &#x1F4BE;
@@ -24,44 +19,47 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { useStore } from '@/store';
-import { ALTERA_PROJETO, ADICIONA_PROJETO } from '@/store/tipo-mutacoes';
 import { TipoNotificacao } from '@/interfaces/INotificacao';
 import useNotificador from '@/hooks/notificador'
+import { CADASTRAR_PROJETOS, ALTERAR_PROJETOS } from '@/store/tipo-acoes';
 
-export default defineComponent ({
+export default defineComponent({
   name: 'Formulario',
   props: {
     id: {
       type: String
     }
   },
-  
+
   mounted() {
-    if(this.id) {
+    if (this.id) {
       const projeto = this.store.state.projetos.find(proj => proj.id == this.id)
       this.nomeDoProjeto = projeto?.nome || ''
     }
   },
-  data () {
+  data() {
     return {
-      nomeDoProjeto: ""      
+      nomeDoProjeto: ""
     };
   },
   methods: {
-    salvar () {
+    salvar() {
       if (this.id) {
-        this.store.commit(ALTERA_PROJETO, {
+        this.store.dispatch(ALTERAR_PROJETOS, {
           id: this.id,
           nome: this.nomeDoProjeto
-        })
+        }).then(this.lidar_com_sucesso)
       } else {
-        this.store.commit(ADICIONA_PROJETO, this.nomeDoProjeto)        
+        this.store.dispatch(CADASTRAR_PROJETOS, this.nomeDoProjeto)
+          .then(this.lidar_com_sucesso)
       }
+    },
+    lidar_com_sucesso() {
       this.nomeDoProjeto = '';
       this.notificar(TipoNotificacao.SUCESSO, 'Perfeito!!!', 'Foi cadastrado um novo projeto com sucessso!!!')
       this.$router.push('/projetos')
-    },
-    
+    }
+
   },
   setup() {
     const store = useStore()
@@ -75,8 +73,7 @@ export default defineComponent ({
 </script>
 
 <style scoped>
-  input {
-    margin-bottom: 1rem;
-  }
-  
+input {
+  margin-bottom: 1rem;
+}
 </style>
