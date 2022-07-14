@@ -1,12 +1,16 @@
 {
   "projetos": [
     {
-      "nome": "Alura tracker 3.0",
-      "id": 1
+      "id": 1,
+      "nome": "Alura tracker 3.0"
     },
     {
       "nome": "Vue",
       "id": 2
+    },
+    {
+      "id": 3,
+      "nome": "Quero pago Bill"
     }
   ],
   "tarefas": [
@@ -54,6 +58,24 @@
         "id": 1
       },
       "id": 5
+    },
+    {
+      "duracaoEmSegundos": 6,
+      "descricao": "componentes 222",
+      "projeto": {
+        "nome": "Vue",
+        "id": 2
+      },
+      "id": 6
+    },
+    {
+      "duracaoEmSegundos": 7,
+      "descricao": "Criando Bill paga",
+      "projeto": {
+        "id": 3,
+        "nome": "Quero pago Bill"
+      },
+      "id": 7
     }
   ]
 }
