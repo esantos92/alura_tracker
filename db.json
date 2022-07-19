@@ -34,7 +34,7 @@
     },
     {
       "duracaoEmSegundos": 5,
-      "descricao": "Refatorando Alura tracker",
+      "descricao": "Refatorando Alura tracker modal",
       "projeto": {
         "nome": "Vue",
         "id": 2
@@ -52,7 +52,7 @@
     },
     {
       "duracaoEmSegundos": 5,
-      "descricao": "ok",
+      "descricao": "rafatorando a modal",
       "projeto": {
         "nome": "Alura tracker 3.0",
         "id": 1
@@ -61,7 +61,7 @@
     },
     {
       "duracaoEmSegundos": 6,
-      "descricao": "componentes 222",
+      "descricao": "componentes",
       "projeto": {
         "nome": "Vue",
         "id": 2
@@ -76,6 +76,24 @@
         "nome": "Quero pago Bill"
       },
       "id": 7
+    },
+    {
+      "duracaoEmSegundos": 3,
+      "descricao": "testandoaaaaaaa",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura tracker 3.0"
+      },
+      "id": 8
+    },
+    {
+      "duracaoEmSegundos": 3,
+      "descricao": "",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura tracker 3.0"
+      },
+      "id": 9
     }
   ]
 }

@@ -58,7 +58,6 @@
           descricao: descricao.value,
           projeto: projetos.value.find(proj => proj.id == idProjeto.value)
         })
-        descricao.value = ''
       }
 
       return {
